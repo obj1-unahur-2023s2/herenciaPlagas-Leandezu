@@ -1,0 +1,24 @@
+import elementos.*
+import plagas.*
+
+describe "Test de ataque de Plaga" {
+
+	const cucarachas = new Cucaracha(poblacion = 10, pesoPromedio = 5)
+	const casa = new Hogar(nivelDeMugre = 10, confort = 25)
+	
+	test"La casa es buena"{
+		assert.equals(true, casa.esBueno())
+	}
+	test"La mugre de casa aumenta a 15"{
+		cucarachas.atacarElemento(casa)
+		assert.equals(15, casa.nivelDeMugre())
+	}
+	test"La poblacion de cucarachas aumenta a 11 al atacar"{
+		cucarachas.atacarElemento(casa)
+		assert.equals(11, cucarachas.poblacion())
+	}
+	test"El peso promedio de cucarachas aumenta a 7 al atacar"{
+		cucarachas.atacarElemento(casa)
+		assert.equals(7, cucarachas.pesoPromedio())
+	}
+}
